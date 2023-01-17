@@ -1,5 +1,6 @@
 package models.gui;
 
+import models.FileOperations.CVSFileOperation;
 import models.FileOperations.JSONFileOperation;
 import models.Objects.Stopky;
 import org.json.simple.parser.ParseException;
@@ -19,6 +20,7 @@ public class GUI extends JFrame {
     JTable jt;
     boolean TimerRunning = false;
     JSONFileOperation json = new JSONFileOperation();
+    CVSFileOperation cvs = new CVSFileOperation();
     Stopky stopky = new Stopky();
     ArrayList<Stopky> timeValues;
     String column[]= {"ID","TIME"};
@@ -179,7 +181,9 @@ public class GUI extends JFrame {
         ArrayList<String> c = new ArrayList<>();
         c.add("ID");
         c.add("TIME");
-        json.Save(new ArrayList<>(),timeValues);
+        json.Save(/*new ArrayList<>(),*/timeValues);
+//        cvs.save(timeValues);
+//        cvs.load();
     }
 
     public void loadTable() throws IOException, ParseException {

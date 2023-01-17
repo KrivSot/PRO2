@@ -23,13 +23,14 @@ public class JSONFileOperation implements FileOperation{
     }
 
     @Override
-    public void Save(ArrayList<String> collumNames, ArrayList<Stopky> values) throws IOException {
+    public void Save(ArrayList<Stopky> values) throws IOException {
         FileWriter file = new FileWriter("E:output.json");
         for(int i = 0; i< values.size();i++)
         {
             json = new JSONObject();
             json.put("TIME",values.get(i).toString());
 
+            //Zabalit do JSON OBJEKTU je treba
             JSONObject timeObject = new JSONObject();
             timeObject.put("cas",json);
 
