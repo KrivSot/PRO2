@@ -49,6 +49,7 @@ public class GUI extends JFrame {
         lblTime.setForeground(Color.BLACK);
         lblTime.setText("0:0:0:0");
 
+        //FIXME MULTITHREADING
         Runnable runTimer = () ->{
             Thread.currentThread().setName("runTimer");
             try{
@@ -65,6 +66,8 @@ public class GUI extends JFrame {
         };
         Thread refreshDataThread = new Thread(runTimer);
         refreshDataThread.start();
+
+
         panel.add(lblTime);
 
         return panel;
